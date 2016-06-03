@@ -15,6 +15,9 @@
   "files": [
     "index.js"
   ],
+  "scripts": {
+    "test": "gulp test"
+  },
   "keywords": [
     "debug",
     "inspect",
