@@ -47,9 +47,9 @@ module.exports = function(opts) {
   };
 
   let logFlush = function(callback) {
-    let key = ['zero-format', 'one-format'][files] || 'many-format';
-    if (opts.log && opts.count && opts[key]) {
-      log((files > 1) ? util.format(opts[key], files) : opts[key]);
+    let format = ['zero-format', 'one-format'][files] || 'many-format';
+    if (opts.log && opts.count && opts[format]) {
+      log((files > 1) ? util.format(opts[format], files) : opts[format]);
     }
     return callback();
   };

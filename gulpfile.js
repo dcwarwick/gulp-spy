@@ -141,12 +141,22 @@ gulp.task('test-prefixes', () =>
       }))
   ));
 
+gulp.task('test-preserve', () =>
+  // check that we don't disturb the stream contents
+  gulp.src('*')
+    .pipe(spy({
+      'prefix': 'first pass:'
+    }))
+    .pipe(spy({
+      'prefix': 'second pass:'
+    })));
+
 gulp.task('test-lint', () =>
   gulp.src('*.js')
     .pipe(eslint())
     .pipe(eslint.format()));
 
 gulp.task('test', (cb) =>
-  run('test-defaults', 'test-formats', 'test-nulls', 'test-prefixes', 'test-lint', cb));
+  run('test-defaults', 'test-formats', 'test-nulls', 'test-prefixes', 'test-preserve', 'test-lint', cb));
 
 gulp.task('default', ['test']);
