@@ -1,13 +1,14 @@
 'use strict';
 
 let chalk = require('chalk'),
-    gulp = require('gulp'),
-    util = require('gulp-util'),
-    merge = require('merge-stream'),
-    run = require('run-sequence'),
-    spy = require('./');
+  gulp = require('gulp'),
+  eslint = require('gulp-eslint'),
+  util = require('gulp-util'),
+  merge = require('merge-stream'),
+  run = require('run-sequence'),
+  spy = require('./');
 
-/*----- demo tasks ----------------------------------------------------------*/
+/* ----- demo tasks -------------------------------------------------------- */
 
 gulp.task('demo-defaults', () =>
   gulp.src('*')
@@ -16,7 +17,7 @@ gulp.task('demo-defaults', () =>
 gulp.task('demo', (cb) =>
   run('demo-defaults', cb));
 
-/*----- test tasks ----------------------------------------------------------*/
+/* ---- test tasks --------------------------------------------------------- */
 
 let never = chalk.red.bold('This shouldn\'t appear!');
 
@@ -33,7 +34,7 @@ gulp.task('test-defaults', () =>
       })),
     gulp.src('*.never')
       .pipe(spy({
-        'prefix': 'no files:',
+        'prefix': 'no files:'
       }))
   ));
 
@@ -140,7 +141,12 @@ gulp.task('test-prefixes', () =>
       }))
   ));
 
+gulp.task('test-lint', () =>
+  gulp.src('*.js')
+    .pipe(eslint())
+    .pipe(eslint.format()));
+
 gulp.task('test', (cb) =>
-  run('test-defaults', 'test-formats', 'test-nulls', 'test-prefixes', cb));
+  run('test-defaults', 'test-formats', 'test-nulls', 'test-prefixes', 'test-lint', cb));
 
 gulp.task('default', ['test']);
