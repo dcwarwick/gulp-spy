@@ -159,4 +159,6 @@ gulp.task('test-lint', () =>
 gulp.task('test', (cb) =>
   run('test-defaults', 'test-formats', 'test-nulls', 'test-prefixes', 'test-preserve', 'test-lint', cb));
 
+/* ---- default task ------------------------------------------------------- */
+
 gulp.task('default', ['test']);
