@@ -8,7 +8,6 @@ let chalk = require('chalk'),
   util = require('util');
 
 module.exports = function(opts) {
-
   opts = defaults(opts, {
     'prefix': false,
     'postfix': false,
@@ -37,7 +36,7 @@ module.exports = function(opts) {
     console.log.apply(console, items);
   };
 
-  let logChunk = function(chunk, encoding, callback) {
+  let onChunk = function(chunk, encoding, callback) {
     files++;
     if (opts.log && opts.format) {
       log(util.format(opts.format, path.relative('', chunk.path)));
@@ -46,7 +45,7 @@ module.exports = function(opts) {
     return callback();
   };
 
-  let logFlush = function(callback) {
+  let onFlush = function(callback) {
     let format = ['zero-format', 'one-format'][files] || 'many-format';
     if (opts.log && opts.count && opts[format]) {
       log((files > 1) ? util.format(opts[format], files) : opts[format]);
@@ -54,5 +53,5 @@ module.exports = function(opts) {
     return callback();
   };
 
-  return through(logChunk, logFlush);
+  return through(onChunk, onFlush);
 };
