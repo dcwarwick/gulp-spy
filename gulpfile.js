@@ -213,7 +213,12 @@ gulp.task('test-lint', () =>
     .pipe(eslint.format()));
 
 gulp.task('test', (cb) =>
-  run('test-defaults', 'test-formats', 'test-nulls', 'test-prefixes', 'test-preserve', 'test-lint', cb));
+  run('test-defaults',
+      'test-formats',
+      'test-nulls',
+      'test-prefixes',
+      'test-preserve',
+      'test-lint', cb));
 
 /* ---- default task ------------------------------------------------------- */
 

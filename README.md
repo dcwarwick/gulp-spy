@@ -77,6 +77,14 @@ message and summary message. A falsy value means no postfix is used.
 
 ![](screenshots/postfix.png)
 
+#### count
+
+Type: `boolean`  
+Default: `true`
+
+Turn off count mode to stop logging of the summary which shows the number
+of files that passed through when the stream is finally flushed.
+
 #### log
 
 Type: `boolean`  
@@ -85,14 +93,6 @@ Default: `true`
 Turn off log mode to stop all logging of files and of the summary. This
 can be useful to enable conditional logging in gulp tasks. With ```log```
 set to ```false``` the gulp-spy pipeline operation becomes a no-op.
-
-#### count
-
-Type: `boolean`  
-Default: `true`
-
-Turn off count mode to stop logging of the summary which shows the number
-of files that passed through when the stream is finally flushed.
 
 
 ### Advanced options

@@ -10,12 +10,12 @@ let chalk = require('chalk'),
 module.exports = function(opts) {
 
   opts = defaults(opts, {
-    'log': true,
-    'count': true,
-    'timestamp': '[' + chalk.gray('%H:%M:%S') + ']',
     'prefix': false,
     'postfix': false,
+    'count': true,
+    'log': true,
     'format': 'Processing file ' + chalk.magenta('%s'),
+    'timestamp': '[' + chalk.gray('%H:%M:%S') + ']',
     'many-format': 'Processed %d files',
     'one-format': 'Processed 1 file',
     'zero-format': 'No files processed'
