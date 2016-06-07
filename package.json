@@ -1,6 +1,6 @@
 {
   "name": "gulp-spy",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Log the contents of vinyl file streams so you can see what files run through your gulp pipeline",
   "license": "MIT",
   "repository": "dcwarwick/gulp-spy",
