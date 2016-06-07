@@ -184,6 +184,8 @@ exactly one file passed through the stream.
     }))
 ```
 
+![](screenshots/one-format.png)
+
 #### zero-format
 
 Type: `string`  
@@ -193,6 +195,14 @@ Set a string value to override the format of the summary message written
 to the console when no files passed through the stream. A falsy value
 means that no summary message will be written in the case when no files
 passed through the stream.
+
+```js
+    .pipe(spy({
+      'zero-format': 'No files matched'
+    }))
+```
+
+![](screenshots/zero-format.png)
 
 
 ## License
