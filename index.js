@@ -13,11 +13,13 @@ module.exports = function(opts) {
     'postfix': false,
     'count': true,
     'log': true,
+    'console': console,
     'format': 'Processing file ' + chalk.magenta('%s'),
     'timestamp': '[' + chalk.gray('%H:%M:%S') + ']',
     'many-format': 'Processed %d files',
     'one-format': 'Processed 1 file',
-    'zero-format': 'No files processed'
+    'zero-format': 'No files processed',
+    'date': false
   });
 
   let files = 0;
@@ -31,9 +33,9 @@ module.exports = function(opts) {
       items.unshift(opts.prefix);
     }
     if (opts.timestamp) {
-      items.unshift(strftime(opts.timestamp));
+      items.unshift(strftime(opts.timestamp, opts.date));
     }
-    console.log.apply(console, items);
+    opts.console.log.apply(console, items);
   };
 
   let onChunk = function(chunk, encoding, callback) {

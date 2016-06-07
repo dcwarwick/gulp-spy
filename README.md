@@ -97,6 +97,21 @@ set to ```false``` the gulp-spy pipeline operation becomes a no-op.
 
 ### Advanced options
 
+#### console
+
+Type: `Console`  
+Default: `console`
+
+The console to be used for logging. By default, the system console is used,
+which writes the output to `process.stdout`. An alternative console can be
+used to redirect the output to a different output stream.
+
+```js
+    .pipe(spy({
+      console: new console.Console(getLogOutputStream())
+    }))
+```
+
 #### format
 
 Type: `string`  
@@ -203,6 +218,15 @@ passed through the stream.
 ```
 
 ![](screenshots/zero-format.png)
+
+#### date
+
+Type: `Date`  
+Default: false
+
+Supply a date object which will be used for all timestamps. This is really
+only used for test purposes where repeatable output is desired, as it makes
+the timestamps themselves rather pointless.
 
 
 ## License
