@@ -23,7 +23,7 @@ gulp.task('demo-prefix', () =>
 gulp.task('demo-postfix', () =>
   gulp.src('*.js')
     .pipe(spy({
-      prefix: 'with this postfix'
+      postfix: 'with this postfix'
     })));
 
 gulp.task('demo-format', () =>
