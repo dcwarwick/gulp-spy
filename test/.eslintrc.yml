@@ -1,0 +1,4 @@
+
+globals:
+    it: true
+    describe: true

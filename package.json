@@ -1,6 +1,6 @@
 {
   "name": "gulp-spy",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Log the contents of vinyl file streams so you can see what files run through your gulp pipeline",
   "license": "MIT",
   "repository": "dcwarwick/gulp-spy",
@@ -16,7 +16,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "gulp test"
+    "test": "mocha"
   },
   "keywords": [
     "debug",
@@ -45,8 +45,8 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-eslint": "^2.0.0",
-    "gulp-util": "^3.0.7",
-    "merge-stream": "^1.0.0",
-    "run-sequence": "^1.2.1"
+    "mocha": "^2.5.3",
+    "run-sequence": "^1.2.1",
+    "should": "^9.0.0"
   }
 }
